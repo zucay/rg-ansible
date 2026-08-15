@@ -6,3 +6,4 @@
   roles:
     - apt_sources
     - locale
+    - syncthing

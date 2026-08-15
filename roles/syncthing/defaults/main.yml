@@ -1,0 +1,21 @@
+---
+syncthing_home_dir: /root/.local/state/syncthing
+
+# GUI is bound to all interfaces so it's reachable from the LAN
+# (the board has no other user to SSH-tunnel through). Basic auth is
+# therefore mandatory here. Matches the factory-default root/root
+# credentials already used for SSH in inventory/hosts.ini — change
+# both if the board's exposure ever goes beyond the home LAN.
+syncthing_gui_address: "0.0.0.0:8384"
+syncthing_gui_user: root
+syncthing_gui_password: rootroot
+
+# Folders are only declared here, not shared with any remote device —
+# pair devices and accept the shares from the GUI once per new device.
+syncthing_folders:
+  - id: retroarch-saves
+    label: "RetroArch Saves"
+    path: /mnt/sdcard/saves_RA
+  - id: retroarch-states
+    label: "RetroArch States"
+    path: /mnt/sdcard/states_RA

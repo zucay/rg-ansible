@@ -2,9 +2,13 @@
 # Ubuntu 22.04 (jammy) on ARM. ARM builds are not on archive.ubuntu.com —
 # they live under the separate "ports" archive, so the official mirror here
 # is ports.ubuntu.com, not archive.ubuntu.com.
+#
+# ftp.jaist.ac.jp does NOT mirror ubuntu-ports (only the x86 archive),
+# so it 404s on this board's arm64 image — confirmed 2026-08-16. Yamagata
+# University's mirror actually carries ubuntu-ports and is used instead.
 apt_sources_list:
-  - "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu-ports/ jammy main restricted universe multiverse"
-  - "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu-ports/ jammy-updates main restricted universe multiverse"
+  - "deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu-ports/ jammy main restricted universe multiverse"
+  - "deb http://ftp.yz.yamagata-u.ac.jp/pub/linux/ubuntu-ports/ jammy-updates main restricted universe multiverse"
   - "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse"
   - "deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted universe multiverse"
 
