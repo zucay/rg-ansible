@@ -12,7 +12,7 @@ ARM組み込みLinux（ssh/systemd/python導入済み、頻繁に初期化され
 ## 現在やっていること
 1. `apt_sources` ロール: `/etc/apt/sources.list` を国内ミラー（ftp.jaist.ac.jp のubuntu-ports）+ 公式ミラー（ports.ubuntu.com）に差し替え
    - ARM版UbuntuはアーキがARMのため`archive.ubuntu.com`ではなく`ports.ubuntu.com`（ARM用の別系統アーカイブ）を使う点に注意
-2. `locale` ロール: `en_US.UTF-8` と `ja_JP.UTF-8` を生成し、デフォルト言語を英語（元は中国語想定）に変更。日本語表示自体はできるようにしておく
+2. `locale` ロール: デフォルト言語を英語（元は中国語想定）に変更。`en_US.UTF-8` は生成済み前提（SDカードが遅い機体があり、`locale-gen` を毎回走らせるコストを避けるため）
 
 ## 前提
 - 制御ノード（このリポジトリを実行するPC）に `sshpass` が必要（パスワード認証のため）
