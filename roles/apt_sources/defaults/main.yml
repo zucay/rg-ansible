@@ -1,0 +1,17 @@
+---
+# Ubuntu 22.04 (jammy) on ARM. ARM builds are not on archive.ubuntu.com —
+# they live under the separate "ports" archive, so the official mirror here
+# is ports.ubuntu.com, not archive.ubuntu.com.
+apt_sources_list:
+  - "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu-ports/ jammy main restricted universe multiverse"
+  - "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu-ports/ jammy-updates main restricted universe multiverse"
+  - "deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse"
+  - "deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted universe multiverse"
+
+# Vendor images sometimes ship extra *.list files under /etc/apt/sources.d.d
+# pointing at their own (often Chinese) mirrors. List any you want removed,
+# e.g. ["/etc/apt/sources.list.d/vendor.list"]. Left empty by default so
+# nothing is deleted unless you opt in.
+apt_sources_extra_files_to_remove: []
+
+apt_update_cache: true

@@ -1,0 +1,29 @@
+---
+- name: Keep a one-time copy of the original sources.list
+  ansible.builtin.copy:
+    src: /etc/apt/sources.list
+    dest: /etc/apt/sources.list.orig
+    remote_src: true
+    force: false
+  failed_when: false
+  tags: apt_sources
+
+- name: Remove vendor-provided extra apt source files
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ apt_sources_extra_files_to_remove }}"
+  tags: apt_sources
+
+- name: Deploy sources.list pointing at domestic + official mirrors
+  ansible.builtin.template:
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    mode: "0644"
+  notify: apt update
+  tags: apt_sources
+
+- name: Refresh apt cache now, before later roles need it
+  ansible.builtin.meta: flush_handlers

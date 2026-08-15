@@ -1,0 +1,5 @@
+## Managed by Ansible (apt_sources role) — do not edit manually.
+## Regenerate with: ansible-playbook playbook.yml --tags apt_sources
+{% for line in apt_sources_list %}
+{{ line }}
+{% endfor %}

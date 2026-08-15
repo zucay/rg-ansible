@@ -1,0 +1,8 @@
+---
+- name: Provision ARM embedded Linux board after (re)flash
+  hosts: embedded
+  gather_facts: true
+
+  roles:
+    - apt_sources
+    - locale
